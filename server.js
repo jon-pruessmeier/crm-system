@@ -5,7 +5,7 @@ const app = express();
 const db_prod = require('./queries_prod');
 
 
-PORT = 3080;
+PORT = process.env.PORT || 3080;
 
 app.use(express.json());
 
