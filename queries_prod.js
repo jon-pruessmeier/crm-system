@@ -15,7 +15,12 @@ if (process.env.NODE_ENV !== 'production'){
     }
 }
 
-const client = new Client({connectionString: process.env.DATABASE_URL});
+const client = new Client({
+    connectionString: process.env.DATABASE_URL,
+    ssl: {
+        rejectUnauthorized: false,
+      },
+});
 
 
 client.connect();
