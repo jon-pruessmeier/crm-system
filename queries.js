@@ -1,27 +1,28 @@
 const Client = require("pg").Client;
 
-let clientSettings;
-if (process.env.NODE_ENV !== 'production'){
-    clientSettings = {
-        connectionString: process.env.DATABASE_URL,
-        ssl: false
-    }
-} else {
-     clientSettings = {
-        connectionString: process.env.DATABASE_URL,
-        ssl: {
-        rejectUnauthorized: false
-        }
-    }
-}
-
 const client = new Client({
-    connectionString: process.env.DATABASE_URL,
-    ssl: false
+    connectionString: "postgresql://postgres:password@localhost:5433/postgres"
 });
 
+const connect = async () => {
+    let retries = 10;
+    while (retries){
+        try {
+            await client.connect();
+            break;
+        } catch (err){
+            console.log(err);
+            retries -= 1;
+            console.log("Retries lef: " + retries);
+            //wait 2 seconds:
+            await new Promise(res => setTimeout(res, 2500));
+        }
 
-client.connect();
+    }
+    
+}
+
+
 
 const getAllCustomers = (req, res) => {
     client.query(

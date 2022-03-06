@@ -1,8 +1,8 @@
 const express = require("express");
-const bodyparser = require("body-parser")
 const app = express();
 
-const db_prod = require('./queries_prod');
+
+const db = require('./queries');
 
 
 PORT = process.env.PORT || 3080;
@@ -13,13 +13,13 @@ app.get("/", (req, res) => {
     res.send("Hello World");
 })
 
-app.get('/customers', db_prod.getAllCustomers);
-app.get('/customers/:id', db_prod.getCustomerById);
-app.post('/customers', db_prod.createCustomer);
-app.put('/customers/coroporateName', db_prod.updateCorporateName);
-app.put('/customers/contactPerson', db_prod.updateContactPerson);
-app.put('/customers/email', db_prod.updateEmail);
-app.put('/customers/telephone', db_prod.updateTelephone);
+app.get('/customers', db.getAllCustomers);
+app.get('/customers/:id', db.getCustomerById);
+app.post('/customers', db.createCustomer);
+app.put('/customers/coroporateName', db.updateCorporateName);
+app.put('/customers/contactPerson', db.updateContactPerson);
+app.put('/customers/email', db.updateEmail);
+app.put('/customers/telephone', db.updateTelephone);
 
 app.listen(PORT, () => {
     console.log(`Server listens on port ${PORT}`);
