@@ -31,7 +31,7 @@ const getAllCustomers = (req, res) => {
             res.status(200).json(results.rows);
         }
     )
-    client.end();
+    
 }
 
 const getCustomerById = (req, res) => {
@@ -47,7 +47,7 @@ const getCustomerById = (req, res) => {
             res.status(200).json(results.rows);
         }
     )
-    client.end();
+    
 }
 
 const createCustomer = (req, res) => {
@@ -63,7 +63,7 @@ const createCustomer = (req, res) => {
             res.status(201).send(`Customer added with ID: ${results.insertId}`);
         }
     )
-    client.end();
+    
 }
 
 const updateCorporateName = (req, res) => {
@@ -78,11 +78,12 @@ const updateCorporateName = (req, res) => {
         (error, results) => {
             if (error){
                 console.log(error);
+                throw error;
             } 
             res.status(200).send(`Customer modified with ID: ${id}`);
         }
      )
-     client.end();
+     
 }
 
 const updateContactPerson = (req, res) => {
@@ -97,11 +98,12 @@ const updateContactPerson = (req, res) => {
         (error, results) => {
             if (error){
                 console.log(error);
+                throw error;
             } 
             res.status(200).send(`Customer modified with ID: ${id}`);
         }
      )
-     client.end();
+     
 }
 
 const updateEmail = (req, res) => {
@@ -116,11 +118,12 @@ const updateEmail = (req, res) => {
         (error, results) => {
             if (error){
                 console.log(error);
+                throw error;
             } 
             res.status(200).send(`Customer modified with ID: ${id}`);
         }
      )
-     client.end();
+     
 }
 
 const updateTelephone = (req, res) => {
@@ -135,11 +138,12 @@ const updateTelephone = (req, res) => {
         (error, results) => {
             if (error){
                 console.log(error);
+                throw error;
             } 
             res.status(200).send(`Customer modified with ID: ${id}`);
         }
      )
-     client.end();
+     
 }
 
 
