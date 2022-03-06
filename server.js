@@ -9,6 +9,10 @@ PORT = process.env.PORT || 3080;
 
 app.use(express.json());
 
+app.get("/", (req, res) => {
+    res.send("Hello World");
+})
+
 app.get('/customers', db_prod.getAllCustomers);
 app.get('/customers/:id', db_prod.getCustomerById);
 app.post('/customers', db_prod.createCustomer);
