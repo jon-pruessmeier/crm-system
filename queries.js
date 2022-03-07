@@ -1,7 +1,7 @@
 const Client = require("pg").Client;
 
 const client = new Client({
-    connectionString: "postgresql://postgres:postgresg@localhost:5432/postgres"
+    connectionString: "postgresql://postgres:postgres@localhost:5432/postgres"
 });
 
 client.connect();
@@ -134,7 +134,7 @@ const updateTelephone = (req, res) => {
 
 const refreshDB = async () => {
     await client.query(
-        
+
     );
     
 
