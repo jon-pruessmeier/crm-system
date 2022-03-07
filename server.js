@@ -21,6 +21,6 @@ app.put('/api/crm/customers/contactPerson', db.updateContactPerson);
 app.put('/api/crm/customers/email', db.updateEmail);
 app.put('/api/crm/customers/telephone', db.updateTelephone);
 
-app.listen(PORT, () => {
+app.listen(PORT, 'localhost', () => {
     console.log(`Server listens on port ${PORT}`);
 })
