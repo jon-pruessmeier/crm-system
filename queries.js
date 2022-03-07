@@ -1,28 +1,10 @@
 const Client = require("pg").Client;
 
 const client = new Client({
-    connectionString: "postgresql://postgres:password@localhost:5433/postgres"
+    connectionString: "postgresql://postgres:password@localhost:5432/postgres"
 });
 
-const connect = async () => {
-    let retries = 10;
-    while (retries){
-        try {
-            await client.connect();
-            break;
-        } catch (err){
-            console.log(err);
-            retries -= 1;
-            console.log("Retries lef: " + retries);
-            //wait 2 seconds:
-            await new Promise(res => setTimeout(res, 2500));
-        }
-
-    }
-    
-}
-
-
+client.connect();
 
 const getAllCustomers = (req, res) => {
     client.query(
@@ -48,7 +30,7 @@ const getCustomerById = (req, res) => {
                 console.log(error);
                 throw error;
             }
-            res.status(200).json(results.rows);
+            res.status(200).json(results.rows[0]);
         }
     )
     
@@ -64,7 +46,7 @@ const createCustomer = (req, res) => {
                 console.log(error);
                 throw error;
             }
-            res.status(201).send(`Customer added with ID: ${results.insertId}`);
+            res.status(201).send(`Customer successfully added!`);
         }
     )
     
@@ -149,6 +131,9 @@ const updateTelephone = (req, res) => {
      )
      
 }
+
+
+
 
 
 
