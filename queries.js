@@ -1,7 +1,7 @@
 const Client = require("pg").Client;
 
 const client = new Client({
-    connectionString: "postgresql://postgres:password@localhost:5432/postgres"
+    connectionString: "postgresql://postgres:postgres@localhost:5432/postgres"
 });
 
 client.connect();

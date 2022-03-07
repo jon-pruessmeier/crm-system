@@ -13,13 +13,13 @@ app.get("/", (req, res) => {
     res.send("Hello World");
 })
 
-app.get('/customers', db.getAllCustomers);
-app.get('/customers/:id', db.getCustomerById);
-app.post('/customers', db.createCustomer);
-app.put('/customers/coroporateName', db.updateCorporateName);
-app.put('/customers/contactPerson', db.updateContactPerson);
-app.put('/customers/email', db.updateEmail);
-app.put('/customers/telephone', db.updateTelephone);
+app.get('/api/crm/customers', db.getAllCustomers);
+app.get('/api/crm/customers/:id', db.getCustomerById);
+app.post('/api/crm/customers', db.createCustomer);
+app.put('/api/crm/customers/coroporateName', db.updateCorporateName);
+app.put('/api/crm/customers/contactPerson', db.updateContactPerson);
+app.put('/api/crm/customers/email', db.updateEmail);
+app.put('/api/crm/customers/telephone', db.updateTelephone);
 
 app.listen(PORT, () => {
     console.log(`Server listens on port ${PORT}`);
