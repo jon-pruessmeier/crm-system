@@ -1,11 +1,38 @@
 function AddCustomer(){
 
+    function handleClick(){
+        //check if corporate_name is not null
+        if (document.getElementById("corporate_name").value === ""){
+            return;
+        }
+
+        const jsonData = {
+            "corporate_name": document.getElementById("corporate_name").value,
+            "contact_person": document.getElementById("contact_person").value,
+            "email": document.getElementById("email").value,
+            "telephone": document.getElementById("telephone").value
+        }
+
+        const url = "/api/customers";
+        const request = {
+            method: "POST",
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(jsonData)
+        }
+
+        fetch(url, request);
+
+    }
+
     return (
         <div>
             <form>
-                <label for="company_name">Company name:</label>
+                <label for="corporate_name">Corporate name:</label>
                 <br/>
-                <input type="text" id="company_name" name="company_name"/>
+                <input type="text" id="corporate_name" name="corporate_name"/>
                 <br/>
 
                 <label for="contact_person">Contact person:</label>
@@ -22,8 +49,7 @@ function AddCustomer(){
                 <input type="text" id="telephone" name="telephone"/>
                 <br/>
             </form>
-            
-            <button type="button">Submit!</button>
+            <button type="button" onClick={handleClick}>Submit!</button>
             
         </div>
     );
