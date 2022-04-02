@@ -56,7 +56,6 @@ function CustomerList(){
             const request = {
                 method: "GET",
                 headers: {
-                    'mode': 'no-cors',
                     'Accept': 'application/json',
                     'Content-Type': 'application/json',
                     }
