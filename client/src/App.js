@@ -3,9 +3,12 @@ import CustomerList from './components/CustomerList';
 
 function App() {
   return (
-    <div className="App">
+    <div className="App container-fluid bg-dark vh-100 d-flex justify-content-center flex-column">
       <CustomerList/>
-      <AddCustomer/>
+      <div className="row d-flex justify-content-center w-100">
+        <AddCustomer/>
+      </div>
+      
     </div>
   );
 }

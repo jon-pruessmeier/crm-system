@@ -28,7 +28,7 @@ function AddCustomer(){
     }
 
     return (
-        <div>
+        <div className="col-12 col-sm-5 col-md-4 my-4 bg-secondary rounded text-light">
             <form>
                 <label for="corporate_name">Corporate name:</label>
                 <br/>
@@ -49,7 +49,7 @@ function AddCustomer(){
                 <input type="text" id="telephone" name="telephone"/>
                 <br/>
             </form>
-            <button type="button" onClick={handleClick}>Submit!</button>
+            <button type="button btn btn-dark" onClick={handleClick}>Submit!</button>
             
         </div>
     );

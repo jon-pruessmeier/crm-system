@@ -12,6 +12,7 @@ const getAllCustomers = (req, res) => {
         (error, results) => {
             if (error){
                 console.log(error);
+                res.status(404);
                 throw error;
             }
             res.status(200).json(results.rows);
@@ -27,6 +28,7 @@ const getCustomerById = (req, res) => {
         'SELECT * FROM customers WHERE id = $1', [id],
         (error, results) => {
             if (error) {
+                res.status(404);
                 console.log(error);
                 throw error;
             }
@@ -43,6 +45,7 @@ const createCustomer = (req, res) => {
         [corporateName, contactPerson, email, telephone],
         (error, results) => {
             if (error){
+                res.status(404);
                 console.log(error);
                 throw error;
             }
@@ -55,6 +58,7 @@ const createCustomer = (req, res) => {
 const updateCorporateName = (req, res) => {
     const {id, corporateName} = req.body;
     if (!id){
+        res.status(404);
         console.error("No ID available.")
         return;
     }
@@ -63,6 +67,7 @@ const updateCorporateName = (req, res) => {
         [corporateName, id],
         (error, results) => {
             if (error){
+                res.status(404);
                 console.log(error);
                 throw error;
             } 
@@ -75,6 +80,7 @@ const updateCorporateName = (req, res) => {
 const updateContactPerson = (req, res) => {
     const {id, contactPerson} = req.body;
     if (!id){
+        res.status(404);
         console.error("No ID available.")
         return;
     }
@@ -83,6 +89,7 @@ const updateContactPerson = (req, res) => {
         [contactPerson, id],
         (error, results) => {
             if (error){
+                res.status(404);
                 console.log(error);
                 throw error;
             } 
@@ -95,6 +102,7 @@ const updateContactPerson = (req, res) => {
 const updateEmail = (req, res) => {
     const {id, email} = req.body;
     if (!id){
+        res.status(404);
         console.error("No ID available.")
         return;
     }
@@ -103,6 +111,7 @@ const updateEmail = (req, res) => {
         [email, id],
         (error, results) => {
             if (error){
+                res.status(404);
                 console.log(error);
                 throw error;
             } 
@@ -115,6 +124,7 @@ const updateEmail = (req, res) => {
 const updateTelephone = (req, res) => {
     const {id, telephone} = req.body;
     if (!id){
+        res.status(404);
         console.error("No ID available.")
         return;
     }
@@ -123,6 +133,7 @@ const updateTelephone = (req, res) => {
         [telephone, id],
         (error, results) => {
             if (error){
+                res.status(404);
                 console.log(error);
                 throw error;
             } 

@@ -8,7 +8,7 @@ function CustomerList(){
             "corporate_name": "Beispiel AG",
             "contact_person": "Max Mustermann",
             "email": "maxmuster@helloworld.com",
-            "telephone": "2471487142842798471928581579281758957235"
+            "telephone": "247148714284279"
 
         },
         {
@@ -47,7 +47,7 @@ function CustomerList(){
         demo.push(Customer(testCustomers[i]));
     }
 
-    const [customers, setCustomers] = useState([]);
+    const [customers, setCustomers] = useState(demo);
 
 
     useEffect(() => {
@@ -81,7 +81,7 @@ function CustomerList(){
 
 
     return(
-        <div>
+        <div className="row">
             {customers}
         </div>
     )
