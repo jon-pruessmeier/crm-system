@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import AddCustomer from "./AddCustomer";
 import Customer from "./Customer";
 
 function CustomerList(){
@@ -8,7 +9,7 @@ function CustomerList(){
             "corporate_name": "Beispiel AG",
             "contact_person": "Max Mustermann",
             "email": "maxmuster@helloworld.com",
-            "telephone": "247148714284279"
+            "telephone": "012345678"
 
         },
         {
@@ -22,21 +23,21 @@ function CustomerList(){
             "corporate_name": "Hello World UG",
             "contact_person": "Hello World",
             "email": "",
-            "telephone": "325553346364643"
+            "telephone": "0123456"
 
         },
         {
-            "corporate_name": "NodeJS Supercompany",
+            "corporate_name": "NodeJS Inc.",
             "contact_person": "Java Script",
             "email": "impressum@node.com",
             "telephone": ""
 
         },
         {
-            "corporate_name": "React GbR",
-            "contact_person": "Mr. Component",
-            "email": "react@component.com",
-            "telephone": "76478934624763272658257"
+            "corporate_name": "PSQL SE",
+            "contact_person": "Data Base",
+            "email": "psql@info.com",
+            "telephone": "0987654331"
 
         }
 
@@ -83,6 +84,7 @@ function CustomerList(){
     return(
         <div className="row">
             {customers}
+            <AddCustomer/>
         </div>
     )
 

@@ -28,7 +28,7 @@ function AddCustomer(){
     }
 
     return (
-        <div className="col-12 col-sm-5 col-md-4 my-4 bg-secondary rounded text-light">
+        <div className="col-12 col-sm-5 col-md-4 my-4 mx-3 bg-secondary rounded text-light">
             <form>
                 <label for="corporate_name">Corporate name:</label>
                 <br/>
